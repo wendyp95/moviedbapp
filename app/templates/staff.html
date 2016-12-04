@@ -1,0 +1,28 @@
+<!-- backend.html-->
+
+{% extends "base.html" %}
+{% block title %}Staff{% endblock %}
+{% block body %}
+	<div class="jumbotron">
+	  <h1>Staff Page</h1>
+	  <p class="lead">You can make view and make changes to the database here.</p>
+	</div>
+	<div class="container">
+	<h4><a href="/movieoptions">View/Modify Movies</a></h4> 
+	<h4><a href="/genreoptions">View/Modify Genres</a></h4> 
+	<h4><a href="/roomoptions">View/Modify Rooms</a></h4> 
+	<h4><a href="/showoptions">View/Modify Showings</a></h4> 
+	<h4><a href="/custoptions">View/Modify Customers</a></h4>
+	<h4><a href="/attendoptions">View Attend</a></h4>  
+
+	</div>
+<br>
+<button onclick="goBack()">Back</button>
+
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
+<p>
+{% endblock %}

@@ -1,0 +1,39 @@
+<!--allmov.html-->
+
+{% extends "base.html" %}
+{% block title %}All Movies{% endblock %}
+{% block body %}
+<div class="jumbotron">
+  <h1>All Movies</h1>
+  <p class="lead"></p></div>
+
+<b class="message">
+{{message}}
+</b>
+<p>
+<table class="listall">
+  <tr>
+    <th>Movie ID</th>
+    <th>Movie Name</th>
+    <th>Movie Year</th>
+  </tr>
+  {%- for n in movies %}
+  <tr>
+    <td>{{ n[0] }}</td>
+    <td>{{ n[1] }}</td>    
+    <td>{{ n[2] }}</td>
+  </tr>
+  {%- endfor %}
+</table>
+<br>
+<button onclick="goBack()">Back</button>
+
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
+
+<p>
+{% endblock %}
+

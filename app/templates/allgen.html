@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}All Genres{% endblock %}
+{% block body %}
+<div class="jumbotron">
+  <h1>All Genres</h1>
+  <p class="lead"></p></div>
+<!--Content here-->
+<div>
+<b class="message">
+{{message}}
+</b>
+<p>
+<table class="listall">
+  <tr>
+    <th>Movie ID</th>
+    <th>Movie Name</th>
+    <th>Movie Genre</th>
+  </tr>
+  {%- for n in table %}
+  <tr>
+    <td>{{ n[0] }}</td>
+    <td>{{ n[1] }}</td>
+    <td>{{ n[2] }}</td>      
+  </tr>
+  {%- endfor %}
+</table>
+
+</div>
+
+
+
+<br>
+<button onclick="goBack()">Back</button>
+
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
+
+<p>
+{% endblock %}
+

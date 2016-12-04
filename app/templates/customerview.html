@@ -1,0 +1,62 @@
+<!--customerview.html-->
+
+{% extends "base.html" %}
+{% block title %}Customer{% endblock %}
+{% block body %}
+<div class="jumbotron">
+  <h1>Customer</h1>
+  <p class="lead"></p></div>
+  
+<b class="message"> {{ message }} </b>
+
+{% if profile %}
+<b class="message"> Profile Info</b>
+<table class="listall">
+  <tr>
+    <th>Customer ID</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Email</th>
+    <th>Sex</th>
+  </tr>
+  {%- for n in profile %}
+  <tr>
+    <td>{{ n[0] }}</td>
+    <td>{{ n[1] }}</td>    
+    <td>{{ n[2] }}</td>
+    <td>{{ n[3] }}</td>
+    <td>{{ n[4] }}</td>
+  </tr>
+  {%- endfor %}
+</table>
+{% endif %}
+
+{% if profileRating %}
+<b class="message"> Rating Info</b>
+<table class="listall">
+  <tr>
+    <th>Customer ID</th>
+    <th>Movie Name</th>
+    <th>Rating</th>
+  </tr>
+  {%- for n in profileRating %}
+  <tr>
+    <td>{{ n[0] }}</td>
+    <td>{{ n[1] }}</td>    
+    <td>{{ n[2] }}</td>
+  </tr>
+  {%- endfor %}
+</table>
+{% endif %}
+
+<p>
+<button onclick="goBack()">Back</button>
+
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
+
+<p>
+{% endblock %}

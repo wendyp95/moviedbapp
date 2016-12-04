@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}All Shows{% endblock %}
+{% block body %}
+<div class="jumbotron">
+  <h1>All Shows</h1>
+  <p class="lead"></p></div>
+<!--Content here-->
+<div>
+<b class="message">
+{{message}}
+</b>
+<p>
+<table class="listall">
+  <thead>
+  <tr>
+    <th>Showing ID</th>
+    <th>Date and Time</th>
+    <th>Movie ID</th>
+    <th>Theatre Room Number</th>
+    <th>Ticket Price</th>
+  </tr>
+  </thead>
+  {%- for n in table %}
+  <tbody>
+  <tr>
+    <td>{{ n[0] }}</td>
+    <td>{{ n[1] }}</td>    
+    <td>{{ n[2] }}</td>
+    <td>{{ n[3] }}</td> 
+    <td>${{ n[4] }}</td>            
+  </tr>
+  </tbody>
+  {%- endfor %}
+</table>
+
+</div>
+
+
+
+<br>
+<button onclick="goBack()">Back</button>
+
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
+
+<p>
+{% endblock %}
+

@@ -1,0 +1,27 @@
+<!-- backend.html-->
+
+{% extends "base.html" %}
+{% block title %}Customer{% endblock %}
+{% block body %}
+	<div class="jumbotron">
+	  <h1>Customer Page</h1>
+	  <p class="lead">You can select customer options here.</p>
+	</div>
+	<div class="container">
+	<h4><a href="/searchoptions">Search a Showing</a></h4> 
+	<h4><a href="/attendshow">Attend a Showing</a></h4> 
+	<h4><a href="/rateShowing">Rate a Showing</a></h4> 
+	<h4><a href="/seeRatings">See Your Ratings</a></h4> 
+	<h4><a href="/seeProfile">See Your Profile</a></h4>
+	</div>
+
+<br>
+<button onclick="goBack()">Back</button>
+
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
+<p>
+{% endblock %}

@@ -1,0 +1,65 @@
+<!--allmov.html-->
+
+{% extends "base.html" %}
+{% block title %}Show Options- Staff{% endblock %}
+{% block body %}
+<div class="jumbotron">
+  <h1>Show Options</h1>
+  <p class="lead"></p></div>
+<p><h4><a href="/allshows">List all Shows</a></h4></p> 
+   <p><h4>Add a show</h4></p> 
+   <form method="POST" action="/addshow">
+    <!--All fields required-->
+    <p>Showing Date (Format Example:2016-02-11 21:30:00): <input type="text" name="showdate" required></p>
+    <p>Movie ID: <input type="text" name="movid" required></p>
+    <p>Theatre Room Number: <input type="text" name="roomnum" required></p>
+    <p>Ticket Price: <input type="text" name="price" required></p>
+    <p><input type="submit" value="Add"></p>
+  </form><br>
+
+  <p><h4>Delete a Show</h4></p> 
+   <form method="POST" action="/delshow">
+    <p>Showing ID: <input type="text" name="showID" required></p>
+    <input type="submit" value="Delete">
+  </form><br>
+
+   <p><h4>Modify Showing Movie</h4></p> 
+   <form method="POST" action="/modifyshowmovie">
+    <p>Showing ID: <input type="text" name="showID" required></p>
+    <p>New Movie ID: <input type="text" name="newMovID"></p>
+    <input type="submit" value="Modify Show Time">
+  </form><br>
+
+  <p><h4>Modify Showing Time</h4></p> 
+   <form method="POST" action="/modifyshowtime">
+    <p>Showing ID: <input type="text" name="showID" required></p>
+    <p>New Showing Date Time: <input type="text" name="newDateTime"></p>
+    <input type="submit" value="Modify Show Time">
+  </form><br>
+
+   <p><h4>Modify Showing Room</h4></p> 
+   <form method="POST" action="/modifyshowroom">
+    <p>Showing ID: <input type="text" name="showID" required></p>
+    <p>New Theatre Room: <input type="text" name="newRoom"></p>
+    <input type="submit" value="Modify Show Room">
+  </form><br>
+
+    <p><h4>Modify Showing Price</h4></p> 
+   <form method="POST" action="/modifyshowprice">
+    <p>Showing ID: <input type="text" name="showID" required></p>
+    <p>New Ticket Price: <input type="text" name="newPrice"></p>    
+    <input type="submit" value="Modify Show Room">
+  </form><br>
+
+<br>
+<button onclick="goBack()">Back</button>
+
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
+
+<p>
+{% endblock %}
+

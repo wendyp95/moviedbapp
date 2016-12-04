@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}All Customers{% endblock %}
+{% block body %}
+<div class="jumbotron">
+  <h1>All Customers</h1>
+  <p class="lead"></p></div>
+<!--Content here-->
+<div>
+<b class="message">
+{{message}}
+</b>
+<p>
+<table class="listall">
+  <thead>
+  <tr>
+    <th>Customer ID</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Email Address</th>
+    <th>Sex</th>
+  </tr>
+  </thead>
+  {%- for n in table %}
+  <tbody>
+  <tr>
+    <td>{{ n[0] }}</td>
+    <td>{{ n[1] }}</td>    
+    <td>{{ n[2] }}</td>
+    <td>{{ n[3] }}</td> 
+    <td>{{ n[4] }}</td>            
+  </tr>
+  </tbody>
+  {%- endfor %}
+</table>
+
+</div>
+
+
+
+<br>
+<button onclick="goBack()">Back</button>
+
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
+
+<p>
+{% endblock %}
+

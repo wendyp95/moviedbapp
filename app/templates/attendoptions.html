@@ -1,0 +1,91 @@
+<!--allmov.html-->
+
+{% extends "base.html" %}
+{% block title %}Attendence - Staff{% endblock %}
+{% block body %}
+<div class="jumbotron">
+  <h1>Attendence Options</h1>
+  <p class="lead"></p></div>
+
+<!--
+list all the paid for attendances and all attributes,
+along with customer first name and last name
+along with showing and showing date/time
+along with movie and movie title
+sorted by rating
+-->
+
+<!--
+Query should be:
+select
+  FirstName,
+  LastName,
+  attendmovieshowing.idShowing as ShowingID,
+  attendmovieshowing.showingDate as ShowingDate,
+  attendmovieshowing.idMovie as MovieID,
+  attendmovieshowing.MovieName as MovieName,
+  attendmovieshowing.Rating as Rating
+from 
+Customer
+join (
+  select 
+   Attend.Rating,
+   Attend.Customer_idCustomer as custID,
+   movieshowing.*
+  from Attend
+  join (
+    select 
+      idShowing,
+      DATE_FORMAT(ShowingDateTime,'%b %d %Y %h:%i %p') as showingDate,
+      idMovie,
+      MovieName
+    from Showing join Movie
+    on Showing.Movie_idMovie = Movie.idMovie
+    ) as movieshowing
+  on Attend.Showing_idShowing = movieshowing.idShowing
+  ) as attendmovieshowing
+on Customer.idCustomer = attendmovieshowing.custID;
+  -->
+
+
+<p><h4><a href="/allattends">List all Attends</a></h4></p> 
+
+<table class="listall">
+  <thead>
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Showing ID</th>
+    <th>Showing Time</th>
+    <th>Movie ID</th>
+    <th>Movie Name</th>
+    <th>Customer Rating</th>
+  </tr>
+  </thead>
+  {%- for n in output %}
+  <tbody>
+  <tr>
+    <td>{{ n[0] }}</td>
+    <td>{{ n[1] }}</td>    
+    <td>{{ n[2] }}</td>
+    <td>{{ n[3] }}</td> 
+    <td>{{ n[4] }}</td>
+    <td>{{ n[5] }}</td>  
+    <td>{{ n[6] }}</td>                
+  </tr>
+  </tbody>
+  {%- endfor %}
+</table>
+
+<br>
+<button onclick="goBack()">Back</button>
+
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
+
+<p>
+{% endblock %}
+

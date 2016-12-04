@@ -1,0 +1,61 @@
+<!--allmov.html-->
+
+{% extends "base.html" %}
+{% block title %}Customer Options- Staff{% endblock %}
+{% block body %}
+<div class="jumbotron">
+  <h1>Customer Options</h1>
+  <p class="lead"></p></div>
+<p><h4><a href="/allcustomers">List all Customers</a></h4></p> 
+   <p><h4>Add a Customer</h4></p> 
+   <form method="POST" action="/addcustomers">
+    <!--All fields required-->
+    <p>First Name: <input type="text" name="fname" required></p>
+    <p>Last Name: <input type="text" name="lname" required></p>
+    <p>Email Address: <input type="text" name="email" required></p>
+    <p>Sex: <input type="varchar" name="sex" required></p>
+    <p><input type="submit" value="Add"></p>
+  </form><br>
+
+  <p><h4>Delete a Customer</h4></p> 
+   <form method="POST" action="/delcustomers">
+    <p>Customer ID: <input type="text" name="custID" required></p>
+    <p>First Name: <input type="text" name="fname" required></p>
+    <p>Last Name: <input type="text" name="lname" required></p>
+    <input type="submit" value="Delete">
+  </form><br>
+
+  <p><h4>Modify Name</h4></p> 
+   <form method="POST" action="/modifyname">
+    <p>Customer ID: <input type="text" name="custID" required></p>
+    <p>New First Name: <input type="text" name="newFirstName"></p>
+    <p>New Last Name: <input type="text" name="newLastName"></p>
+    <input type="submit" value="Modify">
+  </form><br>
+
+   <p><h4>Modify Email</h4></p> 
+   <form method="POST" action="/modifyemail">
+    <p>Customer ID: <input type="text" name="custID" required></p>
+    <p>New Email: <input type="text" name="newEmail" required></p>
+    <input type="submit" value="Modify">
+  </form><br>
+
+   <p><h4>Modify Sex</h4></p> 
+   <form method="POST" action="/modifysex">
+    <p>Customer ID: <input type="text" name="custID" required></p>
+    <p>New Sex: <input type="varchar" name="newSex"></p>  
+    <input type="submit" value="Modify">
+  </form><br>
+
+<br>
+<button onclick="goBack()">Back</button>
+
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
+
+<p>
+{% endblock %}
+

@@ -1,0 +1,49 @@
+<!--allmov.html-->
+
+{% extends "base.html" %}
+{% block title %}Room Options- Staff{% endblock %}
+{% block body %}
+<div class="jumbotron">
+  <h1>Room Options</h1>
+  <p class="lead"></p></div>
+<p><h4><a href="/allrooms">List all Rooms</a></h4></p> 
+   <p><h4>Add a Room</h4></p> 
+   <form method="POST" action="/addroom">
+    <!--All fields required-->
+    <p>New Room Number: <input type="text" name="roomnum" required></p>
+    <p>Capacity: <input type="text" name="cap" required></p>
+    <p><input type="submit" value="Add"></p>
+  </form><br>
+
+  <p><h4>Delete a Room</h4></p> 
+   <form method="POST" action="/delroom">
+    <p>Room Number: <input type="text" name="roomnum" required></p>
+    <input type="submit" value="Delete">
+  </form><br>
+
+  <p><h4>Change Room Capacity</h4></p> 
+   <form method="POST" action="/chroomcap">
+    <p>Room Number: <input type="text" name="roomnum" required></p>
+    <p>New Capacity: <input type="text" name="cap" required></p>
+    <input type="submit" value="Modify">
+  </form><br>
+
+    <p><h4>Change Room Number</h4></p> 
+   <form method="POST" action="/chroomnum">
+    <p>Room Number: <input type="text" name="roomnum" required></p>
+    <p>Change Room Number to: <input type="text" name="newroomnum" required></p>
+    <input type="submit" value="Modify">
+  </form><br>
+
+<br>
+<button onclick="goBack()">Back</button>
+
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
+
+<p>
+{% endblock %}
+

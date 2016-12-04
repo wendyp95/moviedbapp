@@ -1,0 +1,45 @@
+<!--allmov.html-->
+
+{% extends "base.html" %}
+{% block title %}Rate Show - Customer{% endblock %}
+{% block body %}
+<div class="jumbotron">
+  <h1>Attend Show</h1>
+  <p class="lead"></p></div>
+
+<form method="POST" action="/addRating">
+  <p>
+   <b>Select Customer</b>
+  <select name="customers">
+   {%- for n in customers %}
+  <option value="{{ n[2] }}">{{ n[0]}} {{ n[1] }} {{ n[2] }}</option>
+  {%- endfor %}
+  </select></p>  
+  <b>Select Showing</b>
+    <select name="showings">
+   {%- for y in showings %}
+  <option value="{{ y[0] }}">{{ y[0] }}</option>
+  {%- endfor %}
+  </select></p> 
+   <select name="rating">
+  <option value="1">1 Star</option>
+  <option value="2">2 Stars</option>
+  <option value="3">3 Stars</option>  
+  <option value="4">4 Stars</option> 
+  <option value="5">5 Stars</option>     
+  </select></p>        
+    <button type="submit">Rate Show</button>
+</form><br>
+
+<br>
+<button onclick="goBack()">Back</button>
+
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
+
+<p>
+{% endblock %}
+

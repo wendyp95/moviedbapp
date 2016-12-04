@@ -1,0 +1,20 @@
+.listall {
+	border-spacing: collapse;
+   
+}
+
+.message {
+	font-size: 1.5em;
+	color: #6495ED;
+}
+
+th, td {
+	border: 1px solid #c6c7cc;
+  	padding: 10px 15px;
+}	
+
+th{
+	font-weight: bold;
+	padding-right: 20px;
+}
+

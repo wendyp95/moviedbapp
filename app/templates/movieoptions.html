@@ -1,0 +1,39 @@
+<!--allmov.html-->
+
+{% extends "base.html" %}
+{% block title %}Movie Options - Staff{% endblock %}
+{% block body %}
+<div class="jumbotron">
+  <h1>Movie Options</h1>
+  <p class="lead"></p></div>
+<p><h4><a href="/allmov">Select all Movies</a></h4></p> 
+   <p><h4>Add a Movie</h4></p> 
+   <form method="POST" action="/addmov">
+
+    <!--All fields required-->
+    <p>New Movie Name: <input type="text" name="moviename" required></p>
+    <p>New Movie Year: <input type="text" name="movieyear" required></p>
+    <!--Optional genre adding-->
+
+    <p><input type="submit" value="Add"></p>
+  </form>
+  <br>
+  <p><h4>Delete a Movie</h4></p> 
+   <form method="POST" action="/delmov">
+    <p>Movie ID: <input type="text" name="movieID"></p> 
+    <p>Movie Name: <input type="text" name="moviename"></p>
+    <p>Movie Year: <input type="text" name="movieyear"> </p>
+    <input type="submit" value="Delete">
+  </form><br>
+<br>
+<button onclick="goBack()">Back</button>
+
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
+
+<p>
+{% endblock %}
+

@@ -1,0 +1,60 @@
+<!--allmov.html-->
+
+{% extends "base.html" %}
+{% block title %}Genre Options - Staff{% endblock %}
+{% block body %}
+<div class="jumbotron">
+  <h1>Genre Options</h1>
+  <p class="lead"></p></div>
+    <p><a href="/allgen"><h4>List All Genres by Movie</h4></a></p>
+<p><h4>Add Genre to Movie</h4></p>
+
+
+
+<form method="POST" action="/addgen">
+  <p>
+  <select name="genre">
+  <option value="Action">Action</option>
+  <option value="Animated">Animated</option>
+  <option value="Comedy">Comedy</option>  
+  <option value="Drama">Drama</option> 
+  <option value="Romance">Romance</option>     
+  <option value="SciFi">SciFi</option>    
+  </select></p>    
+  <p>Movie ID: <input type="text" name="movieID"></p>
+  <p>Movie Name: <input type="text" name="moviename"></p>
+  <p>Movie Year: <input type="text" name="movieyear"> </p>
+    <button type="submit">Modify</button>
+</form><br>
+
+  
+  <p><h4>Delete Genre to Movie</h4></p>
+
+<form method="POST" action="/delgen">
+  <p>
+  <select name="genre">
+  <option value="action">Action</option>
+  <option value="animated">Animated</option>
+  <option value="comedy">Comedy</option>  
+  <option value="drama">Drama</option> 
+  <option value="romance">Romance</option>     
+  <option value="scifi">SciFi</option>        
+  </select>
+  </p>
+  <p>Movie ID: <input type="text" name="movieID"></p>
+  <p>Movie Name: <input type="text" name="moviename"> </p>
+  Movie Year: <input type="text" name="movieyear"> 
+    <p><button type="submit">Modify</button></p>
+</form><br>
+<br>
+<button onclick="goBack()">Back to Staff</button>
+
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
+
+<p>
+{% endblock %}
+
